@@ -1,0 +1,3403 @@
+<!DOCTYPE html>
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Latihan_Laporan_3</title>
+
+<script src="Latihan_Laporan_3/Chart.min.js" type="text/javascript"></script>
+<script src="Latihan_Laporan_3/main.js"
+	type="text/javascript"></script>
+<link rel="stylesheet" href="Latihan_Laporan_3/Chart.min.css">
+<!-- CSS only -->
+
+<link rel="stylesheet" href="Latihan_Laporan_3/main.css">
+<link rel="stylesheet" href="Latihan_Laporan_3/bootstrap.min.css">
+<link rel="stylesheet" href="Latihan_Laporan_3/normalize.css">
+
+</head>
+<body>
+	<!-- Header material for report template -->
+	<div class="container">
+		<div class="row"></div>
+		<div class="row">
+			<div class="mx-auto" style="width: 50%;">
+				
+					<h1>
+						<!-- The ZAP Logo -->
+						<img src="Latihan_Laporan_3/zap-by-checkmarx.png" alt="">
+						<th>Latihan_Laporan_3</th>
+					</h1>
+				
+			</div>
+		</div>
+		<div class="row"></div>
+		<div class="row">
+			<em
+				class="text-right">Generated on Sen, 20 Jul 2026 07:22:49</em> <em
+				class="text-right">ZAP Version: 2.17.0</em> <em> ZAP by <a
+				href="https://checkmarx.com/">Checkmarx</a>
+			</em>
+		</div>
+	</div>
+	<p></p>
+
+	<!-- Description, and first row of charts-->
+	<div class="container ">
+		
+
+
+
+			<div class="row">
+				<div class="col-md-2 col-lg-2 col-sm-3 col-xs-12">
+					<div class="row">
+						<p></p>
+					</div>
+					<div class="row border-bottom">
+						<b>Most Severe Alert</b> <br> <span
+							class="risk-3">High</span>   
+					</div>
+
+				</div>
+
+
+				
+					<th>
+						<div class="col-md-5 col-lg-5 col-sm-9 col-xs-12 piChartWrapper">
+							<canvas class="styled_canvas" id="summaryChart" width="100%"
+								height="100%"></canvas>
+						</div>
+					</th>
+				
+
+				<script type="text/javascript">
+                    /*<![CDATA[*/
+                    var title = "Vulnerability Severity";
+                    var labels = [
+                    "Tinggi",
+                    "Sedang",
+                    "Lemah",
+                    "Informasi"];
+                    var data = [
+                    1,
+                    6,
+                    7,
+                    6];
+                    /*]]>*/
+
+                    renderSummaryChart(title, labels, data);
+                </script>
+
+				
+
+
+					<div
+						class="col-md-5 col-lg-4 col-sm-9 col-xs-12 piChartWrapper styled_canvas">
+						<h3>Report Description</h3>
+						<ul>
+							
+								<li>Laporan ini ditulis dan disusun oleh :</li>
+								<br />
+							
+								<li>- Habib Muzakki (Habib)</li>
+								<br />
+							
+								<li>- Alumni Kelas 12 Agama (jurusan Agama)</li>
+								<br />
+							
+								<li>- Alumni MAN 2 KOTA SERANG</li>
+								<br />
+							
+								<li>- Mahasiswa D4 Vokasi Teknik Informatika (Harkat Negeri Tegal)</li>
+								<br />
+							
+								<li>- Si pemula Cyber Security dan Bug Hunter (Bug Bounty)</li>
+								
+							
+						</ul>
+
+					</div>
+
+				
+
+			</div>
+		
+
+	</div>
+	<p></p>
+	<div class="container left_right_borders">
+		<div class="row">
+
+			<div class="col-md-2 col-lg-3 col-sm-6 col-xs-12">
+				<div class="row">
+					<p></p>
+				</div>
+				<div class="row border-bottom">
+					<b>Most Common Bug</b><br>
+					<span id="common_bug"></span>
+				</div>
+				<div class="row"></div>
+			</div>
+
+			
+				<div
+					class="col-md-10 col-lg-9 col-sm-12 col-xs-12 horizontalBarChartWrapper">
+					<canvas class="styled_canvas" id="summaryChartBugs" width="100%"
+						height="50%"></canvas>
+				</div>
+			
+			<script type="text/javascript">
+                initializeSummaryBugsChartRender();
+            </script>
+			<script type="text/javascript">
+                    /*<![CDATA[*/
+                    bugs_count = 1;
+                    bugs_label = "Off-site Redirect";
+                    risk = "Tinggi";
+                    bugs_color = ""
+                    if (risk === "High") {
+                        bugs_color = "red";
+                    } else if (risk === "Medium") {
+                        bugs_color = "orange";
+                    } else if (risk === "Low") {
+                        bugs_color = "yellow";
+                    } else {
+                        bugs_color = "blue";
+                    }
+                    if (bugs_count > highest_count) {
+                        highest_count = bugs_count;
+                        most_common_bug = bugs_label;
+                        most_common_bug_color = bugs_color;
+                        document.getElementById('common_bug').innerText = most_common_bug
+                                + ' (' + bugs_count + ')';
+                    }
+                    all_bugs_count.push(bugs_count)
+                    all_colors.push(bugs_color)
+                    all_labels.push(bugs_label)
+                    /*]]>*/
+                </script><script type="text/javascript">
+                    /*<![CDATA[*/
+                    bugs_count = 5;
+                    bugs_label = "CSP: style-src unsafe-inline";
+                    risk = "Sedang";
+                    bugs_color = ""
+                    if (risk === "High") {
+                        bugs_color = "red";
+                    } else if (risk === "Medium") {
+                        bugs_color = "orange";
+                    } else if (risk === "Low") {
+                        bugs_color = "yellow";
+                    } else {
+                        bugs_color = "blue";
+                    }
+                    if (bugs_count > highest_count) {
+                        highest_count = bugs_count;
+                        most_common_bug = bugs_label;
+                        most_common_bug_color = bugs_color;
+                        document.getElementById('common_bug').innerText = most_common_bug
+                                + ' (' + bugs_count + ')';
+                    }
+                    all_bugs_count.push(bugs_count)
+                    all_colors.push(bugs_color)
+                    all_labels.push(bugs_label)
+                    /*]]>*/
+                </script><script type="text/javascript">
+                    /*<![CDATA[*/
+                    bugs_count = 6;
+                    bugs_label = "Content Security Policy (CSP) Header Not Set";
+                    risk = "Sedang";
+                    bugs_color = ""
+                    if (risk === "High") {
+                        bugs_color = "red";
+                    } else if (risk === "Medium") {
+                        bugs_color = "orange";
+                    } else if (risk === "Low") {
+                        bugs_color = "yellow";
+                    } else {
+                        bugs_color = "blue";
+                    }
+                    if (bugs_count > highest_count) {
+                        highest_count = bugs_count;
+                        most_common_bug = bugs_label;
+                        most_common_bug_color = bugs_color;
+                        document.getElementById('common_bug').innerText = most_common_bug
+                                + ' (' + bugs_count + ')';
+                    }
+                    all_bugs_count.push(bugs_count)
+                    all_colors.push(bugs_color)
+                    all_labels.push(bugs_label)
+                    /*]]>*/
+                </script><script type="text/javascript">
+                    /*<![CDATA[*/
+                    bugs_count = 23;
+                    bugs_label = "Kesalahan konfigurasi lintas domain";
+                    risk = "Sedang";
+                    bugs_color = ""
+                    if (risk === "High") {
+                        bugs_color = "red";
+                    } else if (risk === "Medium") {
+                        bugs_color = "orange";
+                    } else if (risk === "Low") {
+                        bugs_color = "yellow";
+                    } else {
+                        bugs_color = "blue";
+                    }
+                    if (bugs_count > highest_count) {
+                        highest_count = bugs_count;
+                        most_common_bug = bugs_label;
+                        most_common_bug_color = bugs_color;
+                        document.getElementById('common_bug').innerText = most_common_bug
+                                + ' (' + bugs_count + ')';
+                    }
+                    all_bugs_count.push(bugs_count)
+                    all_colors.push(bugs_color)
+                    all_labels.push(bugs_label)
+                    /*]]>*/
+                </script><script type="text/javascript">
+                    /*<![CDATA[*/
+                    bugs_count = 3;
+                    bugs_label = "Missing Anti-clickjacking Header";
+                    risk = "Sedang";
+                    bugs_color = ""
+                    if (risk === "High") {
+                        bugs_color = "red";
+                    } else if (risk === "Medium") {
+                        bugs_color = "orange";
+                    } else if (risk === "Low") {
+                        bugs_color = "yellow";
+                    } else {
+                        bugs_color = "blue";
+                    }
+                    if (bugs_count > highest_count) {
+                        highest_count = bugs_count;
+                        most_common_bug = bugs_label;
+                        most_common_bug_color = bugs_color;
+                        document.getElementById('common_bug').innerText = most_common_bug
+                                + ' (' + bugs_count + ')';
+                    }
+                    all_bugs_count.push(bugs_count)
+                    all_colors.push(bugs_color)
+                    all_labels.push(bugs_label)
+                    /*]]>*/
+                </script><script type="text/javascript">
+                    /*<![CDATA[*/
+                    bugs_count = 5;
+                    bugs_label = "Session ID in URL Rewrite";
+                    risk = "Sedang";
+                    bugs_color = ""
+                    if (risk === "High") {
+                        bugs_color = "red";
+                    } else if (risk === "Medium") {
+                        bugs_color = "orange";
+                    } else if (risk === "Low") {
+                        bugs_color = "yellow";
+                    } else {
+                        bugs_color = "blue";
+                    }
+                    if (bugs_count > highest_count) {
+                        highest_count = bugs_count;
+                        most_common_bug = bugs_label;
+                        most_common_bug_color = bugs_color;
+                        document.getElementById('common_bug').innerText = most_common_bug
+                                + ' (' + bugs_count + ')';
+                    }
+                    all_bugs_count.push(bugs_count)
+                    all_colors.push(bugs_color)
+                    all_labels.push(bugs_label)
+                    /*]]>*/
+                </script><script type="text/javascript">
+                    /*<![CDATA[*/
+                    bugs_count = 5;
+                    bugs_label = "Sub Resource Integrity Attribute Missing";
+                    risk = "Sedang";
+                    bugs_color = ""
+                    if (risk === "High") {
+                        bugs_color = "red";
+                    } else if (risk === "Medium") {
+                        bugs_color = "orange";
+                    } else if (risk === "Low") {
+                        bugs_color = "yellow";
+                    } else {
+                        bugs_color = "blue";
+                    }
+                    if (bugs_count > highest_count) {
+                        highest_count = bugs_count;
+                        most_common_bug = bugs_label;
+                        most_common_bug_color = bugs_color;
+                        document.getElementById('common_bug').innerText = most_common_bug
+                                + ' (' + bugs_count + ')';
+                    }
+                    all_bugs_count.push(bugs_count)
+                    all_colors.push(bugs_color)
+                    all_labels.push(bugs_label)
+                    /*]]>*/
+                </script><script type="text/javascript">
+                    /*<![CDATA[*/
+                    bugs_count = 1;
+                    bugs_label = "Cookie No HttpOnly Flag";
+                    risk = "Lemah";
+                    bugs_color = ""
+                    if (risk === "High") {
+                        bugs_color = "red";
+                    } else if (risk === "Medium") {
+                        bugs_color = "orange";
+                    } else if (risk === "Low") {
+                        bugs_color = "yellow";
+                    } else {
+                        bugs_color = "blue";
+                    }
+                    if (bugs_count > highest_count) {
+                        highest_count = bugs_count;
+                        most_common_bug = bugs_label;
+                        most_common_bug_color = bugs_color;
+                        document.getElementById('common_bug').innerText = most_common_bug
+                                + ' (' + bugs_count + ')';
+                    }
+                    all_bugs_count.push(bugs_count)
+                    all_colors.push(bugs_color)
+                    all_labels.push(bugs_label)
+                    /*]]>*/
+                </script><script type="text/javascript">
+                    /*<![CDATA[*/
+                    bugs_count = 5;
+                    bugs_label = "Cross-Domain JavaScript Source File Inclusion";
+                    risk = "Lemah";
+                    bugs_color = ""
+                    if (risk === "High") {
+                        bugs_color = "red";
+                    } else if (risk === "Medium") {
+                        bugs_color = "orange";
+                    } else if (risk === "Low") {
+                        bugs_color = "yellow";
+                    } else {
+                        bugs_color = "blue";
+                    }
+                    if (bugs_count > highest_count) {
+                        highest_count = bugs_count;
+                        most_common_bug = bugs_label;
+                        most_common_bug_color = bugs_color;
+                        document.getElementById('common_bug').innerText = most_common_bug
+                                + ' (' + bugs_count + ')';
+                    }
+                    all_bugs_count.push(bugs_count)
+                    all_colors.push(bugs_color)
+                    all_labels.push(bugs_label)
+                    /*]]>*/
+                </script><script type="text/javascript">
+                    /*<![CDATA[*/
+                    bugs_count = 15;
+                    bugs_label = "Pengungkapan Timestamp - Unix";
+                    risk = "Lemah";
+                    bugs_color = ""
+                    if (risk === "High") {
+                        bugs_color = "red";
+                    } else if (risk === "Medium") {
+                        bugs_color = "orange";
+                    } else if (risk === "Low") {
+                        bugs_color = "yellow";
+                    } else {
+                        bugs_color = "blue";
+                    }
+                    if (bugs_count > highest_count) {
+                        highest_count = bugs_count;
+                        most_common_bug = bugs_label;
+                        most_common_bug_color = bugs_color;
+                        document.getElementById('common_bug').innerText = most_common_bug
+                                + ' (' + bugs_count + ')';
+                    }
+                    all_bugs_count.push(bugs_count)
+                    all_colors.push(bugs_color)
+                    all_labels.push(bugs_label)
+                    /*]]>*/
+                </script><script type="text/javascript">
+                    /*<![CDATA[*/
+                    bugs_count = 3;
+                    bugs_label = "Private IP Disclosure";
+                    risk = "Lemah";
+                    bugs_color = ""
+                    if (risk === "High") {
+                        bugs_color = "red";
+                    } else if (risk === "Medium") {
+                        bugs_color = "orange";
+                    } else if (risk === "Low") {
+                        bugs_color = "yellow";
+                    } else {
+                        bugs_color = "blue";
+                    }
+                    if (bugs_count > highest_count) {
+                        highest_count = bugs_count;
+                        most_common_bug = bugs_label;
+                        most_common_bug_color = bugs_color;
+                        document.getElementById('common_bug').innerText = most_common_bug
+                                + ' (' + bugs_count + ')';
+                    }
+                    all_bugs_count.push(bugs_count)
+                    all_colors.push(bugs_color)
+                    all_labels.push(bugs_label)
+                    /*]]>*/
+                </script><script type="text/javascript">
+                    /*<![CDATA[*/
+                    bugs_count = 13;
+                    bugs_label = "Server Leaks Version Information via \"Server\" HTTP Response Header Field";
+                    risk = "Lemah";
+                    bugs_color = ""
+                    if (risk === "High") {
+                        bugs_color = "red";
+                    } else if (risk === "Medium") {
+                        bugs_color = "orange";
+                    } else if (risk === "Low") {
+                        bugs_color = "yellow";
+                    } else {
+                        bugs_color = "blue";
+                    }
+                    if (bugs_count > highest_count) {
+                        highest_count = bugs_count;
+                        most_common_bug = bugs_label;
+                        most_common_bug_color = bugs_color;
+                        document.getElementById('common_bug').innerText = most_common_bug
+                                + ' (' + bugs_count + ')';
+                    }
+                    all_bugs_count.push(bugs_count)
+                    all_colors.push(bugs_color)
+                    all_labels.push(bugs_label)
+                    /*]]>*/
+                </script><script type="text/javascript">
+                    /*<![CDATA[*/
+                    bugs_count = 30;
+                    bugs_label = "Strict-Transport-Security Header Not Set";
+                    risk = "Lemah";
+                    bugs_color = ""
+                    if (risk === "High") {
+                        bugs_color = "red";
+                    } else if (risk === "Medium") {
+                        bugs_color = "orange";
+                    } else if (risk === "Low") {
+                        bugs_color = "yellow";
+                    } else {
+                        bugs_color = "blue";
+                    }
+                    if (bugs_count > highest_count) {
+                        highest_count = bugs_count;
+                        most_common_bug = bugs_label;
+                        most_common_bug_color = bugs_color;
+                        document.getElementById('common_bug').innerText = most_common_bug
+                                + ' (' + bugs_count + ')';
+                    }
+                    all_bugs_count.push(bugs_count)
+                    all_colors.push(bugs_color)
+                    all_labels.push(bugs_label)
+                    /*]]>*/
+                </script><script type="text/javascript">
+                    /*<![CDATA[*/
+                    bugs_count = 15;
+                    bugs_label = "X-Content-Type-Options Header Missing";
+                    risk = "Lemah";
+                    bugs_color = ""
+                    if (risk === "High") {
+                        bugs_color = "red";
+                    } else if (risk === "Medium") {
+                        bugs_color = "orange";
+                    } else if (risk === "Low") {
+                        bugs_color = "yellow";
+                    } else {
+                        bugs_color = "blue";
+                    }
+                    if (bugs_count > highest_count) {
+                        highest_count = bugs_count;
+                        most_common_bug = bugs_label;
+                        most_common_bug_color = bugs_color;
+                        document.getElementById('common_bug').innerText = most_common_bug
+                                + ' (' + bugs_count + ')';
+                    }
+                    all_bugs_count.push(bugs_count)
+                    all_colors.push(bugs_color)
+                    all_labels.push(bugs_label)
+                    /*]]>*/
+                </script><script type="text/javascript">
+                    /*<![CDATA[*/
+                    bugs_count = 2;
+                    bugs_label = "Information Disclosure - Information in Browser localStorage";
+                    risk = "Informasi";
+                    bugs_color = ""
+                    if (risk === "High") {
+                        bugs_color = "red";
+                    } else if (risk === "Medium") {
+                        bugs_color = "orange";
+                    } else if (risk === "Low") {
+                        bugs_color = "yellow";
+                    } else {
+                        bugs_color = "blue";
+                    }
+                    if (bugs_count > highest_count) {
+                        highest_count = bugs_count;
+                        most_common_bug = bugs_label;
+                        most_common_bug_color = bugs_color;
+                        document.getElementById('common_bug').innerText = most_common_bug
+                                + ' (' + bugs_count + ')';
+                    }
+                    all_bugs_count.push(bugs_count)
+                    all_colors.push(bugs_color)
+                    all_labels.push(bugs_label)
+                    /*]]>*/
+                </script><script type="text/javascript">
+                    /*<![CDATA[*/
+                    bugs_count = 1;
+                    bugs_label = "Information Disclosure - Information in Browser sessionStorage";
+                    risk = "Informasi";
+                    bugs_color = ""
+                    if (risk === "High") {
+                        bugs_color = "red";
+                    } else if (risk === "Medium") {
+                        bugs_color = "orange";
+                    } else if (risk === "Low") {
+                        bugs_color = "yellow";
+                    } else {
+                        bugs_color = "blue";
+                    }
+                    if (bugs_count > highest_count) {
+                        highest_count = bugs_count;
+                        most_common_bug = bugs_label;
+                        most_common_bug_color = bugs_color;
+                        document.getElementById('common_bug').innerText = most_common_bug
+                                + ' (' + bugs_count + ')';
+                    }
+                    all_bugs_count.push(bugs_count)
+                    all_colors.push(bugs_color)
+                    all_labels.push(bugs_label)
+                    /*]]>*/
+                </script><script type="text/javascript">
+                    /*<![CDATA[*/
+                    bugs_count = 7;
+                    bugs_label = "Modern Web Application";
+                    risk = "Informasi";
+                    bugs_color = ""
+                    if (risk === "High") {
+                        bugs_color = "red";
+                    } else if (risk === "Medium") {
+                        bugs_color = "orange";
+                    } else if (risk === "Low") {
+                        bugs_color = "yellow";
+                    } else {
+                        bugs_color = "blue";
+                    }
+                    if (bugs_count > highest_count) {
+                        highest_count = bugs_count;
+                        most_common_bug = bugs_label;
+                        most_common_bug_color = bugs_color;
+                        document.getElementById('common_bug').innerText = most_common_bug
+                                + ' (' + bugs_count + ')';
+                    }
+                    all_bugs_count.push(bugs_count)
+                    all_colors.push(bugs_color)
+                    all_labels.push(bugs_label)
+                    /*]]>*/
+                </script><script type="text/javascript">
+                    /*<![CDATA[*/
+                    bugs_count = 16;
+                    bugs_label = "Re-examine Cache-control Directives";
+                    risk = "Informasi";
+                    bugs_color = ""
+                    if (risk === "High") {
+                        bugs_color = "red";
+                    } else if (risk === "Medium") {
+                        bugs_color = "orange";
+                    } else if (risk === "Low") {
+                        bugs_color = "yellow";
+                    } else {
+                        bugs_color = "blue";
+                    }
+                    if (bugs_count > highest_count) {
+                        highest_count = bugs_count;
+                        most_common_bug = bugs_label;
+                        most_common_bug_color = bugs_color;
+                        document.getElementById('common_bug').innerText = most_common_bug
+                                + ' (' + bugs_count + ')';
+                    }
+                    all_bugs_count.push(bugs_count)
+                    all_colors.push(bugs_color)
+                    all_labels.push(bugs_label)
+                    /*]]>*/
+                </script><script type="text/javascript">
+                    /*<![CDATA[*/
+                    bugs_count = 20;
+                    bugs_label = "Retrieved from Cache";
+                    risk = "Informasi";
+                    bugs_color = ""
+                    if (risk === "High") {
+                        bugs_color = "red";
+                    } else if (risk === "Medium") {
+                        bugs_color = "orange";
+                    } else if (risk === "Low") {
+                        bugs_color = "yellow";
+                    } else {
+                        bugs_color = "blue";
+                    }
+                    if (bugs_count > highest_count) {
+                        highest_count = bugs_count;
+                        most_common_bug = bugs_label;
+                        most_common_bug_color = bugs_color;
+                        document.getElementById('common_bug').innerText = most_common_bug
+                                + ' (' + bugs_count + ')';
+                    }
+                    all_bugs_count.push(bugs_count)
+                    all_colors.push(bugs_color)
+                    all_labels.push(bugs_label)
+                    /*]]>*/
+                </script><script type="text/javascript">
+                    /*<![CDATA[*/
+                    bugs_count = 1;
+                    bugs_label = "User Controllable HTML Element Attribute (Potential XSS)";
+                    risk = "Informasi";
+                    bugs_color = ""
+                    if (risk === "High") {
+                        bugs_color = "red";
+                    } else if (risk === "Medium") {
+                        bugs_color = "orange";
+                    } else if (risk === "Low") {
+                        bugs_color = "yellow";
+                    } else {
+                        bugs_color = "blue";
+                    }
+                    if (bugs_count > highest_count) {
+                        highest_count = bugs_count;
+                        most_common_bug = bugs_label;
+                        most_common_bug_color = bugs_color;
+                        document.getElementById('common_bug').innerText = most_common_bug
+                                + ' (' + bugs_count + ')';
+                    }
+                    all_bugs_count.push(bugs_count)
+                    all_colors.push(bugs_color)
+                    all_labels.push(bugs_label)
+                    /*]]>*/
+                </script>
+			<script type="text/javascript">
+                title = "Count of Vulnerability Occurrences";
+                class_of_most_common_bug = ''
+                if (most_common_bug_color === 'red')
+                    new_class = 'risk-3'
+                else if (most_common_bug_color === 'orange')
+                    new_class = 'risk-2'
+                else if (most_common_bug_color === 'yellow')
+                    new_class = 'risk-1'
+                else if (most_common_bug_color === 'blue')
+                    new_class = 'risk-0'
+                document.getElementById('common_bug').classList.add(new_class);
+                renderSummaryBugsChart(title, all_labels, all_bugs_count,
+                        all_colors);
+            </script>
+			<p></p>
+		</div>
+	</div>
+	<p></p>
+
+	
+		<div class="container">
+			<h3 class="left-header">Insights</h3>
+			
+			<table
+				class="insights table table-hover table-bordered table-striped">
+				<tr>
+					<th height="24">Level</th>
+					<th>Alasan</th>
+					<th>Site</th>
+					<th>Deskripsi</th>
+					<th>Statistic</th>
+				</tr>
+				
+					<tr>
+						<td class="risk-1">
+							<div>Lemah</div>
+						</td>
+						<td>
+							<div>Peringatan</div>
+						</td>
+						<td>
+							<div></div>
+						</td>
+						<td>
+							<div>ZAP errors logged - see the zap.log file for details</div>
+						</td>
+						<td align="center">
+							<div>18   </div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-1">
+							<div>Lemah</div>
+						</td>
+						<td>
+							<div>Peringatan</div>
+						</td>
+						<td>
+							<div></div>
+						</td>
+						<td>
+							<div>ZAP warnings logged - see the zap.log file for details</div>
+						</td>
+						<td align="center">
+							<div>1.115   </div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div></div>
+						</td>
+						<td>
+							<div>Percentage of network failures</div>
+						</td>
+						<td align="center">
+							<div>2 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>http://clients2.google.com</div>
+						</td>
+						<td>
+							<div>Percentage of responses with status code 2xx</div>
+						</td>
+						<td align="center">
+							<div>100 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>http://clients2.google.com</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with content type application/json</div>
+						</td>
+						<td align="center">
+							<div>100 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>http://clients2.google.com</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with method GET</div>
+						</td>
+						<td align="center">
+							<div>100 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>http://clients2.google.com</div>
+						</td>
+						<td>
+							<div>Count of total endpoints</div>
+						</td>
+						<td align="center">
+							<div>1   </div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>http://clients2.google.com</div>
+						</td>
+						<td>
+							<div>Percentage of slow responses</div>
+						</td>
+						<td align="center">
+							<div>33 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://accounts.google.com</div>
+						</td>
+						<td>
+							<div>Percentage of responses with status code 2xx</div>
+						</td>
+						<td align="center">
+							<div>100 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://accounts.google.com</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with content type application/binary</div>
+						</td>
+						<td align="center">
+							<div>50 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://accounts.google.com</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with content type application/javascript</div>
+						</td>
+						<td align="center">
+							<div>50 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://accounts.google.com</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with method POST</div>
+						</td>
+						<td align="center">
+							<div>100 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://accounts.google.com</div>
+						</td>
+						<td>
+							<div>Count of total endpoints</div>
+						</td>
+						<td align="center">
+							<div>2   </div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://accounts.google.com</div>
+						</td>
+						<td>
+							<div>Percentage of slow responses</div>
+						</td>
+						<td align="center">
+							<div>28 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://android.clients.google.com</div>
+						</td>
+						<td>
+							<div>Percentage of responses with status code 2xx</div>
+						</td>
+						<td align="center">
+							<div>61 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://android.clients.google.com</div>
+						</td>
+						<td>
+							<div>Percentage of responses with status code 3xx</div>
+						</td>
+						<td align="center">
+							<div>38 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://android.clients.google.com</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with content type application/x-protobuffer</div>
+						</td>
+						<td align="center">
+							<div>33 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://android.clients.google.com</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with content type text/plain</div>
+						</td>
+						<td align="center">
+							<div>66 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://android.clients.google.com</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with method POST</div>
+						</td>
+						<td align="center">
+							<div>100 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://android.clients.google.com</div>
+						</td>
+						<td>
+							<div>Count of total endpoints</div>
+						</td>
+						<td align="center">
+							<div>3   </div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://android.clients.google.com</div>
+						</td>
+						<td>
+							<div>Percentage of slow responses</div>
+						</td>
+						<td align="center">
+							<div>100 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://api.github.com</div>
+						</td>
+						<td>
+							<div>Percentage of responses with status code 2xx</div>
+						</td>
+						<td align="center">
+							<div>100 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://api.github.com</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with content type text/plain</div>
+						</td>
+						<td align="center">
+							<div>100 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://api.github.com</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with method POST</div>
+						</td>
+						<td align="center">
+							<div>100 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://api.github.com</div>
+						</td>
+						<td>
+							<div>Count of total endpoints</div>
+						</td>
+						<td align="center">
+							<div>1   </div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://api.github.com</div>
+						</td>
+						<td>
+							<div>Percentage of slow responses</div>
+						</td>
+						<td align="center">
+							<div>100 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://avatars.githubusercontent.com</div>
+						</td>
+						<td>
+							<div>Percentage of responses with status code 2xx</div>
+						</td>
+						<td align="center">
+							<div>100 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://avatars.githubusercontent.com</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with content type image/jpeg</div>
+						</td>
+						<td align="center">
+							<div>62 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://avatars.githubusercontent.com</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with content type image/png</div>
+						</td>
+						<td align="center">
+							<div>37 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://avatars.githubusercontent.com</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with method GET</div>
+						</td>
+						<td align="center">
+							<div>100 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://avatars.githubusercontent.com</div>
+						</td>
+						<td>
+							<div>Count of total endpoints</div>
+						</td>
+						<td align="center">
+							<div>16   </div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://avatars.githubusercontent.com</div>
+						</td>
+						<td>
+							<div>Percentage of slow responses</div>
+						</td>
+						<td align="center">
+							<div>41 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://beacons.gcp.gvt2.com</div>
+						</td>
+						<td>
+							<div>Percentage of responses with status code 2xx</div>
+						</td>
+						<td align="center">
+							<div>100 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://beacons.gcp.gvt2.com</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with content type application/javascript</div>
+						</td>
+						<td align="center">
+							<div>100 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://beacons.gcp.gvt2.com</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with method POST</div>
+						</td>
+						<td align="center">
+							<div>100 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://beacons.gcp.gvt2.com</div>
+						</td>
+						<td>
+							<div>Count of total endpoints</div>
+						</td>
+						<td align="center">
+							<div>1   </div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://beacons.gcp.gvt2.com</div>
+						</td>
+						<td>
+							<div>Percentage of slow responses</div>
+						</td>
+						<td align="center">
+							<div>33 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://camo.githubusercontent.com</div>
+						</td>
+						<td>
+							<div>Percentage of responses with status code 2xx</div>
+						</td>
+						<td align="center">
+							<div>87 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://camo.githubusercontent.com</div>
+						</td>
+						<td>
+							<div>Percentage of responses with status code 4xx</div>
+						</td>
+						<td align="center">
+							<div>12 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://camo.githubusercontent.com</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with content type image/svg+xml</div>
+						</td>
+						<td align="center">
+							<div>93 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://camo.githubusercontent.com</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with content type text/plain</div>
+						</td>
+						<td align="center">
+							<div>6 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://camo.githubusercontent.com</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with method GET</div>
+						</td>
+						<td align="center">
+							<div>100 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://camo.githubusercontent.com</div>
+						</td>
+						<td>
+							<div>Count of total endpoints</div>
+						</td>
+						<td align="center">
+							<div>29   </div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://camo.githubusercontent.com</div>
+						</td>
+						<td>
+							<div>Percentage of slow responses</div>
+						</td>
+						<td align="center">
+							<div>83 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://chromewebstore.googleapis.com</div>
+						</td>
+						<td>
+							<div>Percentage of responses with status code 2xx</div>
+						</td>
+						<td align="center">
+							<div>100 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://chromewebstore.googleapis.com</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with content type application/x-protobuf</div>
+						</td>
+						<td align="center">
+							<div>100 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://chromewebstore.googleapis.com</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with method POST</div>
+						</td>
+						<td align="center">
+							<div>100 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://chromewebstore.googleapis.com</div>
+						</td>
+						<td>
+							<div>Count of total endpoints</div>
+						</td>
+						<td align="center">
+							<div>1   </div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://chromewebstore.googleapis.com</div>
+						</td>
+						<td>
+							<div>Percentage of slow responses</div>
+						</td>
+						<td align="center">
+							<div>100 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://clientservices.googleapis.com</div>
+						</td>
+						<td>
+							<div>Percentage of responses with status code 2xx</div>
+						</td>
+						<td align="center">
+							<div>100 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://clientservices.googleapis.com</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with content type text/plain</div>
+						</td>
+						<td align="center">
+							<div>100 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://clientservices.googleapis.com</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with method POST</div>
+						</td>
+						<td align="center">
+							<div>100 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://clientservices.googleapis.com</div>
+						</td>
+						<td>
+							<div>Count of total endpoints</div>
+						</td>
+						<td align="center">
+							<div>6   </div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://clientservices.googleapis.com</div>
+						</td>
+						<td>
+							<div>Percentage of slow responses</div>
+						</td>
+						<td align="center">
+							<div>100 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://collector.github.com</div>
+						</td>
+						<td>
+							<div>Percentage of responses with status code 2xx</div>
+						</td>
+						<td align="center">
+							<div>100 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://collector.github.com</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with method POST</div>
+						</td>
+						<td align="center">
+							<div>100 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://collector.github.com</div>
+						</td>
+						<td>
+							<div>Count of total endpoints</div>
+						</td>
+						<td align="center">
+							<div>2   </div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://collector.github.com</div>
+						</td>
+						<td>
+							<div>Percentage of slow responses</div>
+						</td>
+						<td align="center">
+							<div>100 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://content-autofill.googleapis.com</div>
+						</td>
+						<td>
+							<div>Percentage of responses with status code 2xx</div>
+						</td>
+						<td align="center">
+							<div>100 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://content-autofill.googleapis.com</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with content type text/plain</div>
+						</td>
+						<td align="center">
+							<div>100 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://content-autofill.googleapis.com</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with method GET</div>
+						</td>
+						<td align="center">
+							<div>100 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://content-autofill.googleapis.com</div>
+						</td>
+						<td>
+							<div>Count of total endpoints</div>
+						</td>
+						<td align="center">
+							<div>6   </div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://content-autofill.googleapis.com</div>
+						</td>
+						<td>
+							<div>Percentage of slow responses</div>
+						</td>
+						<td align="center">
+							<div>100 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://github.com</div>
+						</td>
+						<td>
+							<div>Percentage of responses with status code 2xx</div>
+						</td>
+						<td align="center">
+							<div>90 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://github.com</div>
+						</td>
+						<td>
+							<div>Percentage of responses with status code 3xx</div>
+						</td>
+						<td align="center">
+							<div>4 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://github.com</div>
+						</td>
+						<td>
+							<div>Percentage of responses with status code 4xx</div>
+						</td>
+						<td align="center">
+							<div>4 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://github.com</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with content type application/json</div>
+						</td>
+						<td align="center">
+							<div>33 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://github.com</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with content type application/manifest+json</div>
+						</td>
+						<td align="center">
+							<div>5 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://github.com</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with content type image/svg+xml</div>
+						</td>
+						<td align="center">
+							<div>11 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://github.com</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with content type text/html</div>
+						</td>
+						<td align="center">
+							<div>38 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://github.com</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with content type text/plain</div>
+						</td>
+						<td align="center">
+							<div>5 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://github.com</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with method GET</div>
+						</td>
+						<td align="center">
+							<div>100 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://github.com</div>
+						</td>
+						<td>
+							<div>Count of total endpoints</div>
+						</td>
+						<td align="center">
+							<div>18   </div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://github.com</div>
+						</td>
+						<td>
+							<div>Percentage of slow responses</div>
+						</td>
+						<td align="center">
+							<div>100 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://github.githubassets.com</div>
+						</td>
+						<td>
+							<div>Percentage of responses with status code 2xx</div>
+						</td>
+						<td align="center">
+							<div>100 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://github.githubassets.com</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with content type application/javascript</div>
+						</td>
+						<td align="center">
+							<div>81 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://github.githubassets.com</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with content type text/css</div>
+						</td>
+						<td align="center">
+							<div>17 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://github.githubassets.com</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with method GET</div>
+						</td>
+						<td align="center">
+							<div>100 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://github.githubassets.com</div>
+						</td>
+						<td>
+							<div>Count of total endpoints</div>
+						</td>
+						<td align="center">
+							<div>139   </div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://github.githubassets.com</div>
+						</td>
+						<td>
+							<div>Percentage of slow responses</div>
+						</td>
+						<td align="center">
+							<div>29 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://optimizationguide-pa.googleapis.com</div>
+						</td>
+						<td>
+							<div>Percentage of responses with status code 2xx</div>
+						</td>
+						<td align="center">
+							<div>100 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://optimizationguide-pa.googleapis.com</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with content type application/x-protobuf</div>
+						</td>
+						<td align="center">
+							<div>50 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://optimizationguide-pa.googleapis.com</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with content type text/html</div>
+						</td>
+						<td align="center">
+							<div>50 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://optimizationguide-pa.googleapis.com</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with method GET</div>
+						</td>
+						<td align="center">
+							<div>50 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://optimizationguide-pa.googleapis.com</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with method POST</div>
+						</td>
+						<td align="center">
+							<div>50 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://optimizationguide-pa.googleapis.com</div>
+						</td>
+						<td>
+							<div>Count of total endpoints</div>
+						</td>
+						<td align="center">
+							<div>2   </div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://optimizationguide-pa.googleapis.com</div>
+						</td>
+						<td>
+							<div>Percentage of slow responses</div>
+						</td>
+						<td align="center">
+							<div>95 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://preview.owasp-juice.shop</div>
+						</td>
+						<td>
+							<div>Percentage of responses with status code 2xx</div>
+						</td>
+						<td align="center">
+							<div>90 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://preview.owasp-juice.shop</div>
+						</td>
+						<td>
+							<div>Percentage of responses with status code 4xx</div>
+						</td>
+						<td align="center">
+							<div>6 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://preview.owasp-juice.shop</div>
+						</td>
+						<td>
+							<div>Percentage of responses with status code 5xx</div>
+						</td>
+						<td align="center">
+							<div>2 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://preview.owasp-juice.shop</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with content type application/javascript</div>
+						</td>
+						<td align="center">
+							<div>3 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://preview.owasp-juice.shop</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with content type application/json</div>
+						</td>
+						<td align="center">
+							<div>9 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://preview.owasp-juice.shop</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with content type application/octet-stream</div>
+						</td>
+						<td align="center">
+							<div>4 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://preview.owasp-juice.shop</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with content type font/woff2</div>
+						</td>
+						<td align="center">
+							<div>1 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://preview.owasp-juice.shop</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with content type image/jpeg</div>
+						</td>
+						<td align="center">
+							<div>20 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://preview.owasp-juice.shop</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with content type image/png</div>
+						</td>
+						<td align="center">
+							<div>9 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://preview.owasp-juice.shop</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with content type image/x-icon</div>
+						</td>
+						<td align="center">
+							<div>1 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://preview.owasp-juice.shop</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with content type text/css</div>
+						</td>
+						<td align="center">
+							<div>1 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://preview.owasp-juice.shop</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with content type text/html</div>
+						</td>
+						<td align="center">
+							<div>45 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://preview.owasp-juice.shop</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with content type text/markdown</div>
+						</td>
+						<td align="center">
+							<div>2 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://preview.owasp-juice.shop</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with content type text/plain</div>
+						</td>
+						<td align="center">
+							<div>2 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://preview.owasp-juice.shop</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with method GET</div>
+						</td>
+						<td align="center">
+							<div>98 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://preview.owasp-juice.shop</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with method POST</div>
+						</td>
+						<td align="center">
+							<div>1 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://preview.owasp-juice.shop</div>
+						</td>
+						<td>
+							<div>Count of total endpoints</div>
+						</td>
+						<td align="center">
+							<div>121   </div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://preview.owasp-juice.shop</div>
+						</td>
+						<td>
+							<div>Percentage of slow responses</div>
+						</td>
+						<td align="center">
+							<div>100 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://raw.githubusercontent.com</div>
+						</td>
+						<td>
+							<div>Percentage of responses with status code 2xx</div>
+						</td>
+						<td align="center">
+							<div>100 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://raw.githubusercontent.com</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with content type image/gif</div>
+						</td>
+						<td align="center">
+							<div>20 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://raw.githubusercontent.com</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with content type image/jpeg</div>
+						</td>
+						<td align="center">
+							<div>40 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://raw.githubusercontent.com</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with content type image/png</div>
+						</td>
+						<td align="center">
+							<div>40 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://raw.githubusercontent.com</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with method GET</div>
+						</td>
+						<td align="center">
+							<div>100 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://raw.githubusercontent.com</div>
+						</td>
+						<td>
+							<div>Count of total endpoints</div>
+						</td>
+						<td align="center">
+							<div>5   </div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://raw.githubusercontent.com</div>
+						</td>
+						<td>
+							<div>Percentage of slow responses</div>
+						</td>
+						<td align="center">
+							<div>100 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://update.googleapis.com</div>
+						</td>
+						<td>
+							<div>Percentage of responses with status code 2xx</div>
+						</td>
+						<td align="center">
+							<div>100 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://update.googleapis.com</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with content type application/json</div>
+						</td>
+						<td align="center">
+							<div>100 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://update.googleapis.com</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with method POST</div>
+						</td>
+						<td align="center">
+							<div>100 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://update.googleapis.com</div>
+						</td>
+						<td>
+							<div>Count of total endpoints</div>
+						</td>
+						<td align="center">
+							<div>6   </div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://update.googleapis.com</div>
+						</td>
+						<td>
+							<div>Percentage of slow responses</div>
+						</td>
+						<td align="center">
+							<div>100 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://www.google.com</div>
+						</td>
+						<td>
+							<div>Percentage of responses with status code 2xx</div>
+						</td>
+						<td align="center">
+							<div>100 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://www.google.com</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with content type application/x-protobuffer</div>
+						</td>
+						<td align="center">
+							<div>100 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://www.google.com</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with method GET</div>
+						</td>
+						<td align="center">
+							<div>100 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://www.google.com</div>
+						</td>
+						<td>
+							<div>Count of total endpoints</div>
+						</td>
+						<td align="center">
+							<div>1   </div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://www.google.com</div>
+						</td>
+						<td>
+							<div>Percentage of slow responses</div>
+						</td>
+						<td align="center">
+							<div>100 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://www.googleapis.com</div>
+						</td>
+						<td>
+							<div>Percentage of responses with status code 2xx</div>
+						</td>
+						<td align="center">
+							<div>100 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://www.googleapis.com</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with content type application/json</div>
+						</td>
+						<td align="center">
+							<div>100 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://www.googleapis.com</div>
+						</td>
+						<td>
+							<div>Percentage of endpoints with method POST</div>
+						</td>
+						<td align="center">
+							<div>100 %</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://www.googleapis.com</div>
+						</td>
+						<td>
+							<div>Count of total endpoints</div>
+						</td>
+						<td align="center">
+							<div>1   </div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td class="risk-0">
+							<div>Info</div>
+						</td>
+						<td>
+							<div>Informasi</div>
+						</td>
+						<td>
+							<div>https://www.googleapis.com</div>
+						</td>
+						<td>
+							<div>Percentage of slow responses</div>
+						</td>
+						<td align="center">
+							<div>100 %</div>
+						</td>
+					</tr>
+				
+			</table>
+			<div class="spacer-lg"></div>
+		</div>
+	
+
+	<div class="container">
+
+		
+			<div class="row">
+
+				<h3>Vulnerability Impact</h3>
+				<table class="alerts table table-hover table-bordered table-striped">
+					<caption>
+						<div>Vulnerability Descriptions</div>
+					</caption>
+					<tr>
+						<th width="5%" align="center" scope="col">#</th>
+						<th width="20%" align="center" scope="col">Name</th>
+						<th width="75%" align="center" scope="col">Impact</th>
+					</tr>
+					
+						
+							<tr>
+
+								
+								
+								
+								
+
+								<td><span>Off-site Redirect</span> <span>
+										<a title="Reference 1: https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html"
+										href="https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html">[1]</a>
+								</span><span>
+										<a title="Reference 2: https://cwe.mitre.org/data/definitions/601.html"
+										href="https://cwe.mitre.org/data/definitions/601.html">[2]</a>
+								</span></td>
+								<td><span>
+										<div>Open redirects are one of the OWASP 2010 Top Ten vulnerabilities. This check looks at user-supplied input in query string parameters and POST data to identify where open redirects might be possible. Open redirects occur when an application allows user-supplied input (e.g. https://nottrusted.com) to control an off-site destination. This is generally a pretty accurate way to find where 301 or 302 redirects could be exploited by spammers or phishing attacks.</div>
+								</span></td>
+							</tr>
+						
+							<tr>
+
+								
+								
+								
+								
+
+								<td><span>CSP: style-src unsafe-inline</span> <span>
+										<a title="Reference 1: https://www.w3.org/TR/CSP/"
+										href="https://www.w3.org/TR/CSP/">[1]</a>
+								</span><span>
+										<a title="Reference 2: https://caniuse.com/#search=content+security+policy"
+										href="https://caniuse.com/#search=content+security+policy">[2]</a>
+								</span><span>
+										<a title="Reference 3: https://content-security-policy.com/"
+										href="https://content-security-policy.com/">[3]</a>
+								</span><span>
+										<a title="Reference 4: https://github.com/HtmlUnit/htmlunit-csp"
+										href="https://github.com/HtmlUnit/htmlunit-csp">[4]</a>
+								</span><span>
+										<a title="Reference 5: https://web.dev/articles/csp#resource-options"
+										href="https://web.dev/articles/csp#resource-options">[5]</a>
+								</span></td>
+								<td><span>
+										<div>Content Security Policy (CSP) is an added layer of security that helps to detect and mitigate certain types of attacks. Including (but not limited to) Cross Site Scripting (XSS), and data injection attacks. These attacks are used for everything from data theft to site defacement or distribution of malware. CSP provides a set of standard HTTP headers that allow website owners to declare approved sources of content that browsers should be allowed to load on that page — covered types are JavaScript, CSS, HTML frames, fonts, images and embeddable objects such as Java applets, ActiveX, audio and video files.</div>
+								</span></td>
+							</tr>
+						
+							<tr>
+
+								
+								
+								
+								
+
+								<td><span>Content Security Policy (CSP) Header Not Set</span> <span>
+										<a title="Reference 1: https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP"
+										href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP">[1]</a>
+								</span><span>
+										<a title="Reference 2: https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html"
+										href="https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html">[2]</a>
+								</span><span>
+										<a title="Reference 3: https://www.w3.org/TR/CSP/"
+										href="https://www.w3.org/TR/CSP/">[3]</a>
+								</span><span>
+										<a title="Reference 4: https://w3c.github.io/webappsec-csp/"
+										href="https://w3c.github.io/webappsec-csp/">[4]</a>
+								</span><span>
+										<a title="Reference 5: https://web.dev/articles/csp"
+										href="https://web.dev/articles/csp">[5]</a>
+								</span><span>
+										<a title="Reference 6: https://caniuse.com/#feat=contentsecuritypolicy"
+										href="https://caniuse.com/#feat=contentsecuritypolicy">[6]</a>
+								</span><span>
+										<a title="Reference 7: https://content-security-policy.com/"
+										href="https://content-security-policy.com/">[7]</a>
+								</span></td>
+								<td><span>
+										<div>Content Security Policy (CSP) is an added layer of security that helps to detect and mitigate certain types of attacks, including Cross Site Scripting (XSS) and data injection attacks. These attacks are used for everything from data theft to site defacement or distribution of malware. CSP provides a set of standard HTTP headers that allow website owners to declare approved sources of content that browsers should be allowed to load on that page — covered types are JavaScript, CSS, HTML frames, fonts, images and embeddable objects such as Java applets, ActiveX, audio and video files.</div>
+								</span></td>
+							</tr>
+						
+							<tr>
+
+								
+								
+								
+								
+
+								<td><span>Kesalahan konfigurasi lintas domain</span> <span>
+										<a title="Reference 1: https://vulncat.fortify.com/en/detail?category=HTML5&amp;subcategory=Overly%20Permissive%20CORS%20Policy"
+										href="https://vulncat.fortify.com/en/detail?category=HTML5&amp;subcategory=Overly%20Permissive%20CORS%20Policy">[1]</a>
+								</span></td>
+								<td><span>
+										<div>Web browser data loading may be possible, due to a Cross Origin Resource Sharing (CORS) misconfiguration on the web server.</div>
+								</span></td>
+							</tr>
+						
+							<tr>
+
+								
+								
+								
+								
+
+								<td><span>Missing Anti-clickjacking Header</span> <span>
+										<a title="Reference 1: https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/X-Frame-Options"
+										href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/X-Frame-Options">[1]</a>
+								</span></td>
+								<td><span>
+										<div>The response does not protect against &#39;ClickJacking&#39; attacks. It should include either Content-Security-Policy with &#39;frame-ancestors&#39; directive or X-Frame-Options.</div>
+								</span></td>
+							</tr>
+						
+							<tr>
+
+								
+								
+								
+								
+
+								<td><span>Session ID in URL Rewrite</span> <span>
+										<a title="Reference 1: https://seclists.org/webappsec/2002/q4/111"
+										href="https://seclists.org/webappsec/2002/q4/111">[1]</a>
+								</span></td>
+								<td><span>
+										<div>URL rewrite is used to track user session ID. The session ID may be disclosed via cross-site referer header. In addition, the session ID might be stored in browser history or server logs.</div>
+								</span></td>
+							</tr>
+						
+							<tr>
+
+								
+								
+								
+								
+
+								<td><span>Sub Resource Integrity Attribute Missing</span> <span>
+										<a title="Reference 1: https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Subresource_Integrity"
+										href="https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Subresource_Integrity">[1]</a>
+								</span></td>
+								<td><span>
+										<div>The integrity attribute is missing on a script or link tag served by an external server. The integrity tag prevents an attacker who have gained access to this server from injecting a malicious content.</div>
+								</span></td>
+							</tr>
+						
+							<tr>
+
+								
+								
+								
+								
+
+								<td><span>Cookie No HttpOnly Flag</span> <span>
+										<a title="Reference 1: https://owasp.org/www-community/HttpOnly"
+										href="https://owasp.org/www-community/HttpOnly">[1]</a>
+								</span></td>
+								<td><span>
+										<div>A cookie has been set without the HttpOnly flag, which means that the cookie can be accessed by JavaScript. If a malicious script can be run on this page then the cookie will be accessible and can be transmitted to another site. If this is a session cookie then session hijacking may be possible.</div>
+								</span></td>
+							</tr>
+						
+							<tr>
+
+								
+								
+								
+								
+
+								<td><span>Cross-Domain JavaScript Source File Inclusion</span> </td>
+								<td><span>
+										<div>The page includes one or more script files from a third-party domain.</div>
+								</span></td>
+							</tr>
+						
+							<tr>
+
+								
+								
+								
+								
+
+								<td><span>Pengungkapan Timestamp - Unix</span> <span>
+										<a title="Reference 1: https://cwe.mitre.org/data/definitions/200.html"
+										href="https://cwe.mitre.org/data/definitions/200.html">[1]</a>
+								</span></td>
+								<td><span>
+										<div>A timestamp was disclosed by the application/web server. - Unix</div>
+								</span></td>
+							</tr>
+						
+							<tr>
+
+								
+								
+								
+								
+
+								<td><span>Private IP Disclosure</span> <span>
+										<a title="Reference 1: https://datatracker.ietf.org/doc/html/rfc1918"
+										href="https://datatracker.ietf.org/doc/html/rfc1918">[1]</a>
+								</span></td>
+								<td><span>
+										<div>A private IP (such as 10.x.x.x, 172.x.x.x, 192.168.x.x) or an Amazon EC2 private hostname (for example, ip-10-0-56-78) has been found in the HTTP response body. This information might be helpful for further attacks targeting internal systems.</div>
+								</span></td>
+							</tr>
+						
+							<tr>
+
+								
+								
+								
+								
+
+								<td><span>Server Leaks Version Information via &quot;Server&quot; HTTP Response Header Field</span> <span>
+										<a title="Reference 1: https://httpd.apache.org/docs/current/mod/core.html#servertokens"
+										href="https://httpd.apache.org/docs/current/mod/core.html#servertokens">[1]</a>
+								</span><span>
+										<a title="Reference 2: https://learn.microsoft.com/en-us/previous-versions/msp-n-p/ff648552(v=pandp.10)"
+										href="https://learn.microsoft.com/en-us/previous-versions/msp-n-p/ff648552(v=pandp.10)">[2]</a>
+								</span><span>
+										<a title="Reference 3: https://www.troyhunt.com/shhh-dont-let-your-response-headers/"
+										href="https://www.troyhunt.com/shhh-dont-let-your-response-headers/">[3]</a>
+								</span></td>
+								<td><span>
+										<div>The web/application server is leaking version information via the &quot;Server&quot; HTTP response header. Access to such information may facilitate attackers identifying other vulnerabilities your web/application server is subject to.</div>
+								</span></td>
+							</tr>
+						
+							<tr>
+
+								
+								
+								
+								
+
+								<td><span>Strict-Transport-Security Header Not Set</span> <span>
+										<a title="Reference 1: https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html"
+										href="https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html">[1]</a>
+								</span><span>
+										<a title="Reference 2: https://owasp.org/www-community/Security_Headers"
+										href="https://owasp.org/www-community/Security_Headers">[2]</a>
+								</span><span>
+										<a title="Reference 3: https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security"
+										href="https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security">[3]</a>
+								</span><span>
+										<a title="Reference 4: https://caniuse.com/stricttransportsecurity"
+										href="https://caniuse.com/stricttransportsecurity">[4]</a>
+								</span><span>
+										<a title="Reference 5: https://datatracker.ietf.org/doc/html/rfc6797"
+										href="https://datatracker.ietf.org/doc/html/rfc6797">[5]</a>
+								</span></td>
+								<td><span>
+										<div>HTTP Strict Transport Security (HSTS) is a web security policy mechanism whereby a web server declares that complying user agents (such as a web browser) are to interact with it using only secure HTTPS connections (i.e. HTTP layered over TLS/SSL). HSTS is an IETF standards track protocol and is specified in RFC 6797.</div>
+								</span></td>
+							</tr>
+						
+							<tr>
+
+								
+								
+								
+								
+
+								<td><span>X-Content-Type-Options Header Missing</span> <span>
+										<a title="Reference 1: https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/gg622941(v=vs.85)"
+										href="https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/gg622941(v=vs.85)">[1]</a>
+								</span><span>
+										<a title="Reference 2: https://owasp.org/www-community/Security_Headers"
+										href="https://owasp.org/www-community/Security_Headers">[2]</a>
+								</span></td>
+								<td><span>
+										<div>The Anti-MIME-Sniffing header X-Content-Type-Options was not set to &#39;nosniff&#39;. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.</div>
+								</span></td>
+							</tr>
+						
+							<tr>
+
+								
+								
+								
+								
+
+								<td><span>Information Disclosure - Information in Browser localStorage</span> </td>
+								<td><span>
+										<div>Information was stored in browser localStorage.</div>
+								</span></td>
+							</tr>
+						
+							<tr>
+
+								
+								
+								
+								
+
+								<td><span>Information Disclosure - Information in Browser sessionStorage</span> </td>
+								<td><span>
+										<div>Information was stored in browser sessionStorage.</div>
+								</span></td>
+							</tr>
+						
+							<tr>
+
+								
+								
+								
+								
+
+								<td><span>Modern Web Application</span> </td>
+								<td><span>
+										<div>The application appears to be a modern web application. If you need to explore it automatically then the Ajax Spider may well be more effective than the standard one.</div>
+								</span></td>
+							</tr>
+						
+							<tr>
+
+								
+								
+								
+								
+
+								<td><span>Re-examine Cache-control Directives</span> <span>
+										<a title="Reference 1: https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching"
+										href="https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching">[1]</a>
+								</span><span>
+										<a title="Reference 2: https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Cache-Control"
+										href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Cache-Control">[2]</a>
+								</span><span>
+										<a title="Reference 3: https://grayduck.mn/2021/09/13/cache-control-recommendations/"
+										href="https://grayduck.mn/2021/09/13/cache-control-recommendations/">[3]</a>
+								</span></td>
+								<td><span>
+										<div>The cache-control header has not been set properly or is missing, allowing the browser and proxies to cache content. For static assets like css, js, or image files this might be intended, however, the resources should be reviewed to ensure that no sensitive content will be cached.</div>
+								</span></td>
+							</tr>
+						
+							<tr>
+
+								
+								
+								
+								
+
+								<td><span>Retrieved from Cache</span> <span>
+										<a title="Reference 1: https://datatracker.ietf.org/doc/html/rfc7234"
+										href="https://datatracker.ietf.org/doc/html/rfc7234">[1]</a>
+								</span><span>
+										<a title="Reference 2: https://datatracker.ietf.org/doc/html/rfc7231"
+										href="https://datatracker.ietf.org/doc/html/rfc7231">[2]</a>
+								</span><span>
+										<a title="Reference 3: https://www.rfc-editor.org/rfc/rfc9110.html"
+										href="https://www.rfc-editor.org/rfc/rfc9110.html">[3]</a>
+								</span></td>
+								<td><span>
+										<div>The content was retrieved from a shared cache. If the response data is sensitive, personal or user-specific, this may result in sensitive information being leaked. In some cases, this may even result in a user gaining complete control of the session of another user, depending on the configuration of the caching components in use in their environment. This is primarily an issue where caching servers such as &quot;proxy&quot; caches are configured on the local network. This configuration is typically found in corporate or educational environments, for instance.</div>
+								</span></td>
+							</tr>
+						
+							<tr>
+
+								
+								
+								
+								
+
+								<td><span>User Controllable HTML Element Attribute (Potential XSS)</span> <span>
+										<a title="Reference 1: https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html"
+										href="https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html">[1]</a>
+								</span></td>
+								<td><span>
+										<div>This check looks at user-supplied input in query string parameters and POST data to identify where certain HTML attribute values might be controlled. This provides hot-spot detection for XSS (cross-site scripting) that will require further review by a security analyst to determine exploitability.</div>
+								</span></td>
+							</tr>
+						
+					
+				</table>
+				<div class="spacer-lg"></div>
+			</div>
+		
+	</div>
+
+	<!-- JavaScript Bundle with Popper -->
+	<script src="Latihan_Laporan_3/bootstrap.bundle.min.js" type="text/javascript"></script>
+	<script src="Latihan_Laporan_3/main.js"
+		type="text/javascript"></script>
+</body>
+</html>
+
